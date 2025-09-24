@@ -15,7 +15,7 @@ export default function Home() {
           <App
             initialRoomNames={['general', 'random', 'tech-talk']}
             width="100%"
-            height="100vh"
+            height="97vh"
           />
         </ChatSettingsProvider>
       </AvatarProvider>

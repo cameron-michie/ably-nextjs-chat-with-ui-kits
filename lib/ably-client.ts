@@ -16,10 +16,10 @@ const getAblyClient = () => {
     client = new Ably.Realtime({
       key: apiKey,
       clientId: clientId,
-      autoConnect: true
+      autoConnect: typeof window !== 'undefined'
     });
   }
   return client;
 };
 
-export default getAblyClient();
+export default getAblyClient;
