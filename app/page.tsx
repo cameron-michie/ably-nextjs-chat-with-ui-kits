@@ -11,10 +11,10 @@ export default function Home() {
         </h1>
         <div className="space-y-4">
           <Link href="/app" className="block text-blue-600 hover:text-blue-800 underline">
-            {"<App/>"}
+           -  {"App"}
           </Link>
           <Link href="/livestream" className="block text-blue-600 hover:text-blue-800 underline">
-            {"<ChatWindow/> - Livestream"}
+           -  {"Livestream"}
           </Link>
         </div>
       </div>
