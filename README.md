@@ -30,9 +30,9 @@ npm install
    - Get a free API key from https://ably.com/signup
    - Replace the value in `.env.local` with your actual Ably API key:
      ```
-     NEXT_PUBLIC_ABLY_API_KEY=your-actual-ably-api-key
+     ABLY_API_KEY=your-actual-ably-api-key
      ```
-   - The demo key provided will not work for real connections
+   - The API key is now used server-side only for token generation (more secure)
 
 3. Run the development server:
 ```bash
@@ -55,12 +55,13 @@ npm run dev
 
 ## Architecture
 
-### Ably Client Setup (Singleton Pattern)
+### Ably Client Setup (Token-based Authentication)
 
-The demo follows Ably's best practices for Next.js:
+The demo follows Ably's best practices for Next.js with secure token authentication:
 
-- **`lib/ably-client.ts`**: Singleton Ably Realtime client with `autoConnect: typeof window !== 'undefined'`
-- **`lib/chat-client.ts`**: Chat client wrapper with unique client IDs
+- **`app/api/ably-token/route.ts`**: Server-side API route that generates Ably tokens
+- **`lib/ably-client.ts`**: Singleton Ably Realtime client using token authentication
+- **`components/ChatClientWrapper.tsx`**: Chat client wrapper with proper loading states
 
 ### Components
 
