@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import * as Ably from 'ably';
 
 const apiKey = process.env.ABLY_API_KEY;
@@ -7,7 +7,7 @@ if (!apiKey) {
   throw new Error('ABLY_API_KEY is required');
 }
 
-export async function POST(request: NextRequest) {
+export async function POST() {
   try {
     console.log('Token request received');
 
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const tokenRequest = await ablyRest.auth.createTokenRequest({
       clientId,
       capability: {
-        '*': ['*'] // Required for full access to chat
+        '*': ['*']
       }
     });
 
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error creating Ably token:', error);
     return NextResponse.json(
-      { error: 'Failed to create token', details: error.message },
+      { error: 'Failed to create token', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

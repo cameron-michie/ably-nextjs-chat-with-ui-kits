@@ -40,9 +40,9 @@ export default function LivestreamPage() {
               </h1>
             </div>
 
-            <div className="w-80 border-l border-gray-200">
+            <div className="w-80 border-l border-gray-200 h-screen">
               <ChatRoomProvider name="livestream-chat">
-                <ChatWindow roomName="livestream-chat" height="100vh" />
+                <ChatWindow roomName="livestream-chat" />
               </ChatRoomProvider>
             </div>
           </div>
