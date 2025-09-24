@@ -28,9 +28,9 @@ export default function ChatPage() {
         <ChatSettingsProvider
           initialGlobalSettings={{
             allowMessageUpdatesOwn: true,
-            allowMessageUpdatesAny: true,
+            allowMessageUpdatesAny: false,
             allowMessageDeletesOwn: true,
-            allowMessageDeletesAny: true,
+            allowMessageDeletesAny: false,
             allowMessageReactions: true
           }}
         >
