@@ -9,11 +9,8 @@ if (!apiKey) {
 
 export async function POST() {
   try {
-    console.log('Token request received');
-
     const clientId = 'user-' + Math.random().toString(36).substr(2, 9);
     const ablyRest= new Ably.Rest({ key: apiKey });
-
     const tokenRequest = await ablyRest.auth.createTokenRequest({
       clientId,
       capability: {
